@@ -1,1 +1,1 @@
-# soloProject
+# Spotify App

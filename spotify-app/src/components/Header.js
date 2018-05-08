@@ -8,7 +8,7 @@ class Header extends Component {
             <div>
                 <h1>Spotify App</h1>
                 <a href="http://localhost:8888">
-                <button>Log in with Spotify</button>
+                    <button>Log in with Spotify</button>
                 </a>
             </div>
         )

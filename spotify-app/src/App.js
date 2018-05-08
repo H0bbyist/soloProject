@@ -49,8 +49,16 @@ class App extends Component {
     spotify.getMySavedAlbums()
     .then((res) => {
       this.setState({
-        myAlbums: res.item.album
+        myAlbums: res.items[5].album.images[0].url
       })
+      console.log(res)
+    })
+  }
+
+  getAnalysis() {
+    spotify.getAudioFeaturesForTrack('4AH8GJVosfrbfhe5NVTAnx')
+    .then((res) => {
+      console.log(res)
     })
   }
   
@@ -65,9 +73,18 @@ class App extends Component {
 
         <div>Now Playing: { this.state.nowPlaying.name } </div>
         <div>
-          <img src={ this.state.nowPlaying.image } style={{width: 300}}/>
+          <img src={ this.state.nowPlaying.image }/>
           </div>
           <button onClick={() => this.getNowPlaying()}>Get Now Playing
+          </button>
+          <div>
+            <img src={this.state.myAlbums} />
+          </div>
+          <button onClick={() => this.getSavedAlbums()}>Get My Albums
+          </button>
+          <div>
+            </div>
+          <button onClick={() => this.getAnalysis()}>Get Song Analysis
           </button>
       </div>
     );

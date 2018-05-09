@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './App.css';
+
 
 import Home from './routes/Home';
+import Suggest from './routes/Suggest';
 
 
 
@@ -13,7 +14,8 @@ class App extends Component {
     return (
       <Router>
           <div>
-            <Route exat path="/" component={Home} />
+            <Route exact path="/" component={Home} />
+            <Route path="/suggest" component={Suggest} />
           </div>
       </Router>
     );

@@ -6,9 +6,9 @@ class Header extends Component {
     render() {
         return (
             <div>
-                <h1>Spotify App</h1>
-                <a href="http://localhost:8888">
-                    <button>Log in with Spotify</button>
+                <h1 className="titan">Code Musiccc</h1>
+                <a href="http://localhost:8888/login">
+                <button className="btn btn-secondary">Log into Spotify</button>
                 </a>
             </div>
         )

@@ -29,6 +29,9 @@ class NowPlaying extends Component {
         })
       }
     
+    componentDidMount(){
+        this.getNowPlaying()
+    }
 
       render() {
           return( 
@@ -38,9 +41,9 @@ class NowPlaying extends Component {
         
         </div>
         <div>
-          <img src={ this.state.nowPlaying.image }/>
+          <img src={ this.state.nowPlaying.image } />
           </div>
-          <button onClick={() => this.getNowPlaying()}>Get Now Playing
+          <button className="btn btn-secondary" onClick={() => this.getNowPlaying()}>Refresh Now Playing
           </button>
             </div>
           )

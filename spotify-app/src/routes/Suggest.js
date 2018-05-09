@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import '../routes/home.css';
+import '../routes/suggest.css';
 
-import Header from '../components/Header';
+import NowPlaying from '../components/NowPlaying';
+import MyAlbums from '../components/MyAlbums';
 
 import Spotify from 'spotify-web-api-js';
 const spotify = new Spotify();
+
+
 
 class Home extends Component {
     constructor(props) {
@@ -29,9 +32,8 @@ class Home extends Component {
     render() {
         return(
             <div>
-                <div className="login">
-                <Header />
-                </div>
+                <NowPlaying />
+                <MyAlbums />
             </div>
         )
     }

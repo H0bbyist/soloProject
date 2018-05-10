@@ -3,6 +3,11 @@ import React, { Component } from 'react';
 import Spotify from 'spotify-web-api-js';
 const spotify = new Spotify();
 
+let styles = {
+    height: '100vh',
+    width: '100vw'
+}
+
 
 class NowPlaying extends Component {
     constructor(props) {
@@ -11,8 +16,10 @@ class NowPlaying extends Component {
 
             myAlbums: '',
             nowPlaying: {
-                name: 'Not Checked',
-                image: ''
+                song: 'Not Checked',
+                image: '',
+                artist: ''
+
             }
         }
     }
@@ -22,10 +29,12 @@ class NowPlaying extends Component {
             .then((res) => {
                 this.setState({
                     nowPlaying: {
-                        name: res.item.name,
-                        image: res.item.album.images[0].url
+                        song: res.item.name,
+                        image: res.item.album.images[0].url,
+                        artist: res.item.artists[0].name
                     }
                 })
+                console.log(res)
             })
     }
 
@@ -35,14 +44,16 @@ class NowPlaying extends Component {
 
     render() {
         return (
-            <div>
+            <div className="d-flex align-items-center" style={styles}>
                 
-                
-                
+            
                 <div className="container bg-light">
                     <div className="row">
-                        <div className="col-8-lg">
-                            <img src={this.state.nowPlaying.image} />
+                        <div className="col-6-lg">
+                            <img src={this.state.nowPlaying.image} className="img-fluid"/>
+                        </div>
+                        <div className="col-6-lg">
+                            <h1 className="rale">{this.state.nowPlaying.artist} - {this.state.nowPlaying.song}</h1>
                             <button className="btn btn-warning rale" onClick={() => this.getNowPlaying()}>Refresh Now Playing
                             </button>
                         </div>

@@ -7,7 +7,7 @@ class Header extends Component {
             <div>
                 <h1 className="titan white">Code Musiccc</h1>
                 <a href="http://localhost:8888/login">
-                <button className="btn btn-warning rale">Log into Spotify</button>
+                <button className="btn btn-warning rale">Spotify Login</button>
                 </a>
             </div>
         )

@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import Spotify from 'spotify-web-api-js';
 const spotify = new Spotify();
 
+
 class Home extends Component {
     constructor(props) {
         super(props);

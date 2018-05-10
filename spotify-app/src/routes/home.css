@@ -1,17 +1,18 @@
 body {
     background: url('../images/lander.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
     background-size: cover;
-    -o-background-size: cover;
-  }
+    
+}
 
 .titan {
     font-family: 'Titan One', cursive;
-    color: white;
 }
 
-.title {
+.rale {
+    font-family: 'Raleway', sans-serif;
+}
+
+.white {
     color: white;
 }
 

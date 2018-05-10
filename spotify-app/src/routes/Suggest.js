@@ -3,6 +3,7 @@ import '../routes/suggest.css';
 
 import NowPlaying from '../components/NowPlaying';
 import MyAlbums from '../components/MyAlbums';
+import Logo from '../components/Logo';
 
 import Spotify from 'spotify-web-api-js';
 const spotify = new Spotify();
@@ -32,6 +33,7 @@ class Home extends Component {
     render() {
         return(
             <div>
+                <Logo />
                 <NowPlaying />
             </div>
         )

@@ -8,18 +8,20 @@ let styles = {
     width: '100vw'
 }
 
+let imgSize = {
+    height: '640px'
+}
 
 class NowPlaying extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
             myAlbums: '',
+            songList: [],
             nowPlaying: {
                 song: 'Not Checked',
                 image: '',
                 artist: ''
-
             }
         }
     }
@@ -31,11 +33,30 @@ class NowPlaying extends Component {
                     nowPlaying: {
                         song: res.item.name,
                         image: res.item.album.images[0].url,
-                        artist: res.item.artists[0].name
+                        artist: res.item.artists[0].name,
                     }
                 })
-                console.log(res)
+                this.getSongList(res.item.album.id)
+                
             })
+    }
+
+    getSongList(id) {
+        spotify.getAlbumTracks(id)
+        .then((res) => {
+            this.setState({
+                songList: []
+            })
+            let songs = []
+            for (let i = 0; i < res.items.length; i++) {
+                songs.push(res.items[i].name)
+                
+            }
+            this.setState({
+                songList: [...this.state.songList, songs]
+            })
+            console.log(this.state.songList)
+        })
     }
 
     componentDidMount() {
@@ -43,22 +64,35 @@ class NowPlaying extends Component {
     }
 
     render() {
+
+
         return (
             <div className="d-flex align-items-center" style={styles}>
+            
                 
             
-                <div className="container bg-light">
+                <div className="container bg-light mt-5">
                     <div className="row">
                         <div className="col-6-lg">
-                            <img src={this.state.nowPlaying.image} className="img-fluid"/>
+                            <img src={this.state.nowPlaying.image} style={imgSize} className="img-fluid"/>
                         </div>
-                        <div className="col-6-lg">
-                            <h1 className="rale">{this.state.nowPlaying.artist} - {this.state.nowPlaying.song}</h1>
+                        <div className="col-6-lg mx-auto mt-3">
+                        <div>
+                            <h2 className="rale">{this.state.nowPlaying.artist} - {this.state.nowPlaying.song}</h2>
+                        </div>
+                        <div>
+                            <ol>
+                                <li>track</li>
+                            </ol>
+                        </div>
+                        <div>
                             <button className="btn btn-warning rale" onClick={() => this.getNowPlaying()}>Refresh Now Playing
                             </button>
                         </div>
+                        </div>
                     </div>
                 </div>
+
 
 
             </div>
@@ -68,10 +102,3 @@ class NowPlaying extends Component {
 
 export default NowPlaying
 
-
-{/* <h1>Now Playing: {this.state.nowPlaying.name} </h1>
-                   
-                   <img src={this.state.nowPlaying.image} />
-             
-                   <button className="btn btn-warning rale" onClick={() => this.getNowPlaying()}>Refresh Now Playing
-                   </button> */}

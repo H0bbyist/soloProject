@@ -8,9 +8,6 @@ let styles = {
     width: '100vw'
 }
 
-let imgSize = {
-    height: '640px'
-}
 
 class NowPlaying extends Component {
     constructor(props) {
@@ -25,6 +22,9 @@ class NowPlaying extends Component {
             }
         }
     }
+
+
+        
 
     getNowPlaying() {
         spotify.getMyCurrentPlaybackState()
@@ -53,7 +53,7 @@ class NowPlaying extends Component {
                 
             }
             this.setState({
-                songList: [...this.state.songList, songs]
+                songList: songs
             })
             console.log(this.state.songList)
         })
@@ -63,8 +63,8 @@ class NowPlaying extends Component {
         this.getNowPlaying()
     }
 
-    render() {
 
+    render() {
 
         return (
             <div className="d-flex align-items-center" style={styles}>
@@ -74,15 +74,15 @@ class NowPlaying extends Component {
                 <div className="container bg-light mt-5">
                     <div className="row">
                         <div className="col-6-lg">
-                            <img src={this.state.nowPlaying.image} style={imgSize} className="img-fluid"/>
+                            <img src={this.state.nowPlaying.image} className="img-fluid"/>
                         </div>
                         <div className="col-6-lg mx-auto mt-3">
                         <div>
                             <h2 className="rale">{this.state.nowPlaying.artist} - {this.state.nowPlaying.song}</h2>
                         </div>
                         <div>
-                            <ol>
-                                <li>track</li>
+                           <ol className="rale">
+                           {this.state.songList.map((item, i) => <li key={i}>{item}</li>)}
                             </ol>
                         </div>
                         <div>

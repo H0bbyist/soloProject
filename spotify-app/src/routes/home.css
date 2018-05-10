@@ -11,6 +11,12 @@ body {
 .rale {
     font-family: 'Raleway', sans-serif;
 }
+.test {
+    display: block;
+    float: left;
+    width: 300px;
+    height: 100px;
+}
 
 .white {
     color: white;

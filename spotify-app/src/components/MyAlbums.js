@@ -25,8 +25,8 @@ class MyAlbums extends Component {
         })
       }
     
-      getAnalysis() {
-        spotify.getAudioFeaturesForTrack('4AH8GJVosfrbfhe5NVTAnx')
+      getAnalysis(id) {
+        spotify.getAudioFeaturesForTrack(id)
         .then((res) => {
           console.log(res)
         })

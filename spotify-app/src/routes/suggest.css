@@ -1,8 +1,5 @@
-.logo {
-    position: absolute;
-    margin-top: 10px;
-    margin-left: 20px;
-}
+
+
 
 .test {
     word-wrap: break-word;
@@ -12,4 +9,42 @@
 .test2 {
     height: 100%;
     overflow: hidden;
+}
+
+ul {
+    list-style-type:none;
+    margin:10px;
+    padding:0;
+    position: absolute;
+}
+
+ul > li {
+    display:inline-block;
+    margin-right: 15px;
+}
+
+li a {
+    display:block;
+    min-width:140px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    text-decoration: none;
+}
+
+@media screen and (max-width : 760px){
+    /*Make dropdown links appear inline*/
+    ul {
+        position: static;
+        display: block;
+    }
+    
+    li {
+        margin-bottom: 1px;
+    }
+   
+    ul li, li a {
+        width: 100%;
+    }
 }

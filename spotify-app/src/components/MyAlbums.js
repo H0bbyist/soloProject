@@ -13,8 +13,6 @@ class MyAlbums extends Component {
         }
     }
 
-
-
     getSavedAlbums() {
         spotify.getMySavedAlbums()
         .then((res) => {

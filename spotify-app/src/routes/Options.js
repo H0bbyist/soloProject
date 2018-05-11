@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import '../routes/suggest.css';
+import '../routes/options.css';
 
-import NowPlaying from '../components/NowPlaying';
-import MyAlbums from '../components/MyAlbums';
 import Logo from '../components/Logo';
-import Navigation from '../components/Navigation';
+import MyAlbums from '../components/MyAlbums';
 
 import Spotify from 'spotify-web-api-js';
 const spotify = new Spotify();
 
-
-
-class Home extends Component {
+class Options extends Component {
     constructor(props) {
         super(props);
         const params = this.getHashParams();
@@ -30,16 +26,18 @@ class Home extends Component {
         console.log(hashParams)
         return hashParams;
       }
-
+    
+    
+    
     render() {
+    
         return(
             <div>
-                
                 <Logo />
-                <NowPlaying />
+                <MyAlbums />
             </div>
         )
     }
 }
 
-export default Home
+export default Options

@@ -72,15 +72,16 @@ class NowPlaying extends Component {
                 
             
                 <div className="container bg-light mt-5">
-                    <div className="row">
+                    <div className="row over">
                         <div className="col-6-lg">
                             <img src={this.state.nowPlaying.image} className="img-fluid"/>
                         </div>
-                        <div className="col-6-lg mx-auto mt-3">
+                        <div className="col-6-lg mx-auto mt-3 test test2">
                         <div>
                             <h2 className="rale">{this.state.nowPlaying.artist} - {this.state.nowPlaying.song}</h2>
                         </div>
-                        <div>
+                        <div className="">
+                            <h3 className="rale">Album Tracklist</h3>
                            <ol className="rale">
                            {this.state.songList.map((item, i) => <li key={i}>{item}</li>)}
                             </ol>

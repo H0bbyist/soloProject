@@ -3,3 +3,13 @@
     margin-top: 10px;
     margin-left: 20px;
 }
+
+.test {
+    word-wrap: break-word;
+    
+}
+
+.test2 {
+    height: 100%;
+    overflow: hidden;
+}
